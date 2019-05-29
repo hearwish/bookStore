@@ -1,6 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-
+<%@ page isELIgnored="false"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,6 +32,9 @@
 						<h1>新会员注册</h1>
 						
 						<table width="70%" border="0" cellspacing="2" class="upline">
+							<tr>
+								<td colspan="3" ><font color="red">${register_err}</font></td>
+							</tr>
 							<tr>
 								<td style="text-align:right; width:20%">会员邮箱：</td>
 								<td style="width:40%">
@@ -84,7 +87,8 @@
 						<table width="80%" border="0" cellspacing="2" class="upline">
 							<tr>
 								<td style="text-align:right; width:20%">输入校验码：</td>
-								<td style="width:50%"><input type="text" class="textinput" />
+								<td style="width:50%"><input type="text" class="textinput" name="checkCode"/>
+									<font color="blue">${checkCode_err}</font>
 								</td>
 								<td>&nbsp;</td>
 							</tr>
