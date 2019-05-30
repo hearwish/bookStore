@@ -12,4 +12,12 @@ import model.User;
  */
 public interface UserService {
     void register(User user) throws UserException;
+
+    /**
+     * 激活用户
+     * @param activeCode
+     */
+    void activeUser(String activeCode) throws UserException;
+
+    User loginUser(String username, String password) throws UserException;
 }
