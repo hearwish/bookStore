@@ -17,6 +17,14 @@ import java.util.Properties;
  * @Version 1.0
  */
 public class SendEmail {
+    //yumeiqun@qq.com
+    //授权码：oitnvssifdzzbibe
+    //      vbryqjalyyhbbhbe
+    //
+    //  接收服务器：imap.qq.com 993
+    //  发送服务器smtp.qq.com 465
+
+    //
     static final private String stmp = "smtp.163.com";
     static final private  String from = "yzy_yuzhiyuan@163.com"; // 邮件发送人的邮件地址
     static final String username = "yzy_yuzhiyuan@163.com";  	//发件人的邮件帐户
