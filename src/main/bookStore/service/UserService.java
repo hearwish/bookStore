@@ -3,6 +3,8 @@ package service;
 import exception.UserException;
 import model.User;
 
+import java.sql.SQLException;
+
 /**
  * @ClassName UserService
  * @Description TODO
@@ -15,9 +17,14 @@ public interface UserService {
 
     /**
      * 激活用户
+     *
      * @param activeCode
      */
     void activeUser(String activeCode) throws UserException;
 
     User loginUser(String username, String password) throws UserException;
+
+    User findUserById(String id) throws UserException;
+
+    void modifyUserInfoById(User user) throws UserException;
 }

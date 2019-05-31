@@ -17,4 +17,7 @@ public interface UserDao {
     User findActiveUserDao(String activeCode) throws SQLException;
     void updateStateByActiveCode(String activeCode) throws SQLException;
     User findUserByUserName(String name,String password) throws SQLException;
+
+    User findUserById(String id) throws SQLException;
+    void modifyUserInfo(User user) throws SQLException;
 }

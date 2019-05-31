@@ -104,5 +104,28 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public User findUserById(String id) throws UserException {
+        User user = null;
+        try {
+            user = userDao.findUserById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new UserException("后台错误，请稍后再试试！");
+        }
+        return user;
+    }
+
+    @Override
+    public void modifyUserInfoById(User user) throws UserException {
+        try {
+            userDao.modifyUserInfo(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new UserException("更新用户错误！");
+        }
+
+    }
+
 
 }

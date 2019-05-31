@@ -58,6 +58,12 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+    /**
+     * 根据激活码查找用户
+     * @param activeCode
+     * @return
+     * @throws SQLException
+     */
     @Override
     public User findActiveUserDao(String activeCode) throws SQLException {
         sql = "select * from user where activeCode=?  ";
@@ -68,19 +74,55 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+    /**
+     * 激活用户
+     * @param activeCode
+     * @throws SQLException
+     */
     @Override
     public void updateStateByActiveCode(String activeCode) throws SQLException {
         sql = "update user set state=1 where activeCode=?";
-
             qr.update(sql,activeCode);
 
     }
 
+    /**
+     * 用户登陆
+     * @param name
+     * @param password
+     * @return
+     * @throws SQLException
+     */
     @Override
     public User findUserByUserName(String name, String password) throws SQLException {
         sql = "select * from user where username = ? and password = ?";
         User user = qr.query(sql, new BeanHandler<User>(User.class), name,password);
         return user;
 
+    }
+
+    /**
+     * 根据id查找用户
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public User findUserById(String id) throws SQLException {
+        sql = "select * from user where id = ?";
+        User user = qr.query(sql,new BeanHandler<User>(User.class),id);
+        return user;
+
+    }
+
+    /**
+     * 更改用户
+     * @param user
+     * @throws SQLException
+     */
+    @Override
+    public void modifyUserInfo(User user) throws SQLException {
+        sql = "update user set password=?,gender=?,telephone=? where id=?";
+        qr.update(sql,user.getPassword(),user.getGender(),user.getTelephone(),user.getId());
     }
 }
